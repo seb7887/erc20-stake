@@ -1,6 +1,7 @@
 {
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.3",
+    "@nomiclabs/hardhat-solhint": "^2.0.0",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
     "@openzeppelin/contracts": "^4.4.0",
     "@types/chai": "^4.3.0",
@@ -10,7 +11,18 @@
     "ethereum-waffle": "^3.4.0",
     "ethers": "^5.5.2",
     "hardhat": "^2.7.0",
+    "solidity-coverage": "^0.7.17",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.2"
+  },
+  "license": "MIT",
+  "scripts": {
+    "chain": "hardhat node",
+    "console": "hardhat console --network localhost",
+    "compile": "hardhat compile",
+    "coverage": "hardhat coverage --network localhost",
+    "deploy": "hardhat run ./scripts/deploy.ts --network localhost",
+    "lint": "hardhat check",
+    "test": "hardhat test --network localhost"
   }
 }
