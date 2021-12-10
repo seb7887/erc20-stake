@@ -30,7 +30,7 @@ contract Staker {
 
     modifier stakeNotCompleted() {
         bool completed = externalContract.completed();
-        require(completed, "staking process already completed");
+        require(!completed, "staking process already completed");
         _;
     }
 
@@ -38,11 +38,11 @@ contract Staker {
         externalContract = External(externalContractAddress);
     }
 
-    function timeLeft() public returns (uint256 timeleft) {
+    function timeLeft() public view returns (uint256 timeleft) {
         if (block.timestamp >= deadline) {
             return 0;
         } else {
-            return deadline = block.timestamp;
+            return deadline - block.timestamp;
         }
     }
 
